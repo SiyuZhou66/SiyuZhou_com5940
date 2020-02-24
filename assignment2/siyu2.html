@@ -91,7 +91,7 @@
         {% if counter == 1 %}<div class="row">{% endif %}
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img width="100%" height="200px" src="{{ item['Poster'] }}">
+            <img width="100%" height="200px" src="{{ item['Photo_url'] }}">
             <div class="card-body">
               <p class="card-text">location：{{ item['Name'] }}<br>Address:{{ item['Address'] }}<br>Near By MRT Station:{{ item['Near By MRT Station'] }}<br>What's Unique:{{ item['What's Unique'] }}<br>Region:{{ item['Region'] }}</p>
               <div class="d-flex justify-content-between align-items-center">
@@ -102,9 +102,9 @@
               </div>
             </div>
           </div>
-        </div> 
+        </div>
        {% if counter == 3 %}</div><!--end row-->{%  set counter = ( counter | default(1) ) %}{% else %}{% set counter = ( counter | default(0) ) + 1 %}{% endif %}
-      {% endfor %} 
+      {% endfor %}
       </div>
     </div>
   </div>
@@ -117,7 +117,7 @@
       <a href="#">Back to top</a>
     </p>
     <p>Siyu Zhou &copy; assignment for CUHK Bernard's class</p>
-    
+
   </div>
 </footer>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
