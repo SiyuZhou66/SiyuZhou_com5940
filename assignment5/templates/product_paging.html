@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+  {% for film in films.items %}
+       {% if loop.index == 1 %}{% set counter = ( counter | default(1) ) %}{% endif %}
+        {% if counter == 1 %}<div class="row">{% endif %}
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+              <img width="100%" height="200px" src="{{hkphoto.Photo}}" style="object-fit:cover">
+              <div class="card-body">
+              <p>ID:{{hkphoto.ID}}<br>Name:{{hkphoto.name}}<br>Address:{{hkphoto.Address}}<br>NearStation:{{hkphoto.NearStation}}<br>Unique:{{hkphoto.Unique}}<br>Region:{{hkphoto.Region}}</p>
+              </div>
+              </div>
+        </div> 
+       {% if counter == 3 %}</div><!--end row-->{%  set counter = ( counter | default(1) ) %}{% else %}{% set counter = ( counter | default(0) ) + 1 %}{% endif %}
+  {% endfor %}
+  <div class="container" style="float: left;">
+  {% for page in films.iter_pages() %}  
+    {% if page %}
+        <a href="{{url_for('album')}}/{{ page }}">{{ page }}</a>
+    {% else %}
+        ...
+    {% endif %}
+  {% endfor %}  
+  </div>
+{% endblock %}
